@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme="light"] {
+  --bg: oklch(0.992 0.004 235);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.975 0.01 235);
+  --surface-3: oklch(0.955 0.016 235);
+  --border: oklch(0.9 0.018 235);
+  --border-strong: oklch(0.78 0.04 235);
+  --text: oklch(0.2 0.04 255);
+  --text-2: oklch(0.38 0.04 255);
+  --text-3: oklch(0.52 0.04 255);
+  --accent: oklch(0.56 0.21 255);
+  --accent-2: oklch(0.62 0.22 255);
+  --accent-soft: oklch(0.92 0.055 255);
+  --accent-fg: oklch(0.99 0.01 255);
+  --success: oklch(0.6 0.12 158);
+  --success-soft: oklch(0.93 0.05 158);
+  --warning: oklch(0.74 0.12 72);
+  --warning-soft: oklch(0.94 0.06 80);
+  --danger: oklch(0.6 0.17 25);
+  --danger-soft: oklch(0.93 0.05 28);
+  --purple: oklch(0.58 0.15 295);
+  --purple-soft: oklch(0.93 0.05 295);
+  --font: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
+  --gap: 24px;
+  --pad: 20px;
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 8px 22px oklch(0.2 0.04 255 / 0.07);
+  --shadow: 0 14px 36px oklch(0.2 0.04 255 / 0.1);
+  --shadow-lg: 0 22px 56px oklch(0.2 0.04 255 / 0.14);
+  --page-background:
+    linear-gradient(180deg, oklch(0.985 0.018 226) 0%, oklch(0.994 0.008 225) 34rem),
+    linear-gradient(135deg, oklch(1 0 0), oklch(0.982 0.012 205)),
+    var(--bg);
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme="dark"] {
+  --bg: oklch(0.16 0.045 255);
+  --surface: oklch(0.205 0.052 255);
+  --surface-2: oklch(0.255 0.062 255);
+  --surface-3: oklch(0.31 0.072 255);
+  --border: oklch(0.34 0.064 255);
+  --border-strong: oklch(0.44 0.08 255);
+  --text: oklch(0.96 0.014 255);
+  --text-2: oklch(0.77 0.035 255);
+  --text-3: oklch(0.62 0.045 255);
+  --accent: oklch(0.72 0.24 255);
+  --accent-2: oklch(0.78 0.24 255);
+  --accent-soft: oklch(0.32 0.12 255);
+  --accent-fg: oklch(0.13 0.045 255);
+  --success: oklch(0.7 0.13 158);
+  --success-soft: oklch(0.34 0.06 158);
+  --warning: oklch(0.78 0.12 75);
+  --warning-soft: oklch(0.36 0.06 75);
+  --danger: oklch(0.68 0.16 26);
+  --danger-soft: oklch(0.34 0.07 26);
+  --purple: oklch(0.72 0.16 295);
+  --purple-soft: oklch(0.34 0.08 295);
+  --shadow-sm: 0 10px 30px oklch(0 0 0 / 0.22);
+  --shadow: 0 18px 50px oklch(0 0 0 / 0.32);
+  --shadow-lg: 0 26px 70px oklch(0 0 0 / 0.42);
+  --page-background:
+    linear-gradient(180deg, oklch(0.23 0.07 255 / 0.75), transparent 22rem),
+    linear-gradient(135deg, oklch(0.145 0.04 255), oklch(0.18 0.052 230)),
+    var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--page-background);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+::selection {
+  color: var(--accent-fg);
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline: none;
+}
+
+.page-section {
+  display: grid;
+  gap: 24px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--text-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.page-copy {
+  max-width: 660px;
+  margin: 0;
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 24px;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+  :root {
+    --gap: 16px;
+    --pad: 16px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
