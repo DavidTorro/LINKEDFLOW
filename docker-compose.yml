@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      WEB_SERVER_PORT: ${WEB_SERVER_PORT:-3000}
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-false}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8080}
+      LOCAL_DIR_URL: ${LOCAL_DIR_URL:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:8b}
+      OLLAMA_VISION_MODEL: ${OLLAMA_VISION_MODEL:-gemma3:4b}
+      OLLAMA_TIMEOUT_MS: ${OLLAMA_TIMEOUT_MS:-180000}
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+      args:
+        VITE_BACKEND_BASE_URL: /api
+    ports:
+      - "${LINKEDFLOW_PORT:-8080}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
